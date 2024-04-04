@@ -25,3 +25,7 @@ const hbs = exphbs.create({ helpers });
 
 // TO DO: configure and link session object with sequelize store
 // TO DO: add additional middleware for express-session and store as express.js middleware
+//start the server listening:
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log('Server now listening'));
+  });
