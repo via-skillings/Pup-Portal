@@ -9,39 +9,27 @@ const sequelize = require('../config/connection');
 
 class Special extends Model {};
 
-Special.init (
-    {
-        dog_idid: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primarykey: true,
-            autoIncrement: true,
-        },
-        allerigeis: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        medication: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        illnesses: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        physicalDisability: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        blind: {
-            type: DataTypes.BOOLEN,
-            allowNull: false,
-        },
-        deaf: {
-            type: DataTypes.BOOLEN,
-            allowNull: false,
-        },
+Special.init({
+  dog_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: 'Dog',
+      key: 'id',
+    },
+  },
+  special_need: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+ 
+},
+{sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'Special',
     },
 );
 
-model.exports = Special
+module.exports = Special

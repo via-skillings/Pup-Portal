@@ -1,15 +1,19 @@
-const user = require('./user');
+const User = require('./user');
+const Dog = require('./dog');
+const Traits = require('./traits');
+const Special = require('./special');
 
-model.exports = { user };
 
-const dog = require('./dog');
+Dog.hasMany(Traits, {
+    foreignKey: 'dog_id'
+  });
+  Traits.belongsTo(Dog);
 
-model.exports = { dog };
+  Dog.hasMany(Special, {
+    foreignKey: 'dog_id'
+  });
+  Special.belongsTo(Dog);
 
-const traits = require('./traits');
+module.exports = { User, Dog, Traits, Special };
 
-model.exports = { traits };
 
-const special = require('./special');
-
-model.exports = { special };

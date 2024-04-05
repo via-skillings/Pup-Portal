@@ -1,3 +1,4 @@
+const models = require('./models');
 //path is used for server reading/writing information, access directories
 const path = require('path');
 //imports express server
@@ -7,7 +8,7 @@ const session = require('express-session');
 //imports handelbars for creating views
 const exphbs = require('express-handlebars');
 //import controllers directory
-const routes = require('./controllers');
+//const routes = require('./controllers');
 //import helpers file from utils directory
 const helpers = require('./utils/helpers');
 //imoprt connection file from config folder

@@ -19,7 +19,7 @@ Dog.init (
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primarykey: true,
+            primaryKey: true,
             autoIncrement: true,
         },
         name: {
@@ -59,6 +59,12 @@ Dog.init (
             allowNull: false,
         },
     },
+    {sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'Dog',
+        },
 );
 
-model.exports = Dog
+module.exports = Dog

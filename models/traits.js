@@ -17,30 +17,22 @@ Traits.init (
         dog_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primarykey: true,
-            autoIncrement: true,
+            references:{
+                model: 'Dog',
+                key: 'id'
+            }
         },
-        goodDogs: {
-            type: DataTypes.BOOLEN,
-            allowNull: false,
-        },
-        goodCats: {
-            type: DataTypes.BOOLEN,
-            allowNull: false,
-        },
-        goodKids: {
-            type: DataTypes.BOOLEN,
-            allowNull: false,
-        },
-        crateTrained: {
-            type: DataTypes.BOOLEN,
-            allowNull: false,
-        },
-        pottyTrained: {
-            type: DataTypes.BOOLEN,
+        trait: {
+            type: DataTypes.STRING,
             allowNull: false,
         },
     },
+    {sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'Traits',
+    },
 );
 
-model.exports = Traits;
+module.exports = Traits;
