@@ -14,5 +14,24 @@
     </script> 
 </head>
 <body>
+    <div id="dogProfiles">
+        <!-- Dog profiles will be rendered here -->
+    </div>
+    <script id="dog-template" type="text/x-handlebars-template">
+        {{#each dogs}}
+            <div class="dog-profile">
+                <h2>{{name}}</h2>
+                <p>Breed: {{breed}}</p>
+                <p>Age: {{age}}</p>
+                <p>Size: {{size}}</p>
+                <p>Weight: {{weight}}</p>
+                <p>Vaccinated: {{isVaccinated}}</p>
+                <p>Fixed: {{isFixed}}</p>
+                <p>Adoption fee: {{adoptionFee}}</p>
+            </div>
+        {{/each}}
+    </script>
+<!-- for Boolean values, best practice is to prefix variable with "is" to ensure other developers know this is boolean-->
+    <script src="your-script.js"></script>
 </body>
 </html>
