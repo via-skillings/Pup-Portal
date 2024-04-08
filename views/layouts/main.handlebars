@@ -12,6 +12,9 @@
     <h1>
       Pup Portal
     </h1>
+    <!--href connecting to homepage homeRoute, which will render homepage handlebars view -->
+    <a href="/">Home Page</a>
+    <!--if logged in render the logout button in the header, else render login button-->
     {{#if logged_in}}
         <button>Logout</button>
         <script src="./js/logout.js"></script>
