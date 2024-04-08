@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Mac",
+        "age": "5",
+        "breed": "cattle dog mix",
+        "size": "large",
+        "weight": "65",
+        "sex": "male",
+        "vaccinated": "yes",
+        "spayedOrNeutered": "yes",
+        "fee": "30"
+      },
+      {
+        "name": "Carly",
+        "age": "8",
+        "breed": "golden retriever",
+        "size": "large",
+        "weight": "80",
+        "sex": "golden retriever",
+        "vaccinated": "yes",
+        "spayedOrNeutered": "yes",
+        "fee": "50"
+      },
+      {
+        "name": "Balto",
+        "age": "2",
+        "breed": "husky",
+        "size": "large",
+        "weight": "75",
+        "sex": "male",
+        "vaccinated": "yes",
+        "spayedOrNeutered": "yes",
+        "fee": "70"
+      },
+      
+      {
+        "name": "Rick",
+        "age": "1",
+        "breed": "scottie",
+        "size": "medium",
+        "weight": "30",
+        "sex": "male",
+        "vaccinated": "yes",
+        "spayedOrNeutered": "yes",
+        "fee": "70"
+      }
+]
