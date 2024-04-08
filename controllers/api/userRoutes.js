@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+//API route for login POST request
 router.post('/login', async (req, res) => {
     try {
         //this finds the user who matches up with the email address
@@ -23,7 +24,7 @@ router.post('/login', async (req, res) => {
             return;
         }
 
-        //this creates the session variables the user that is logged in
+        //this creates the session for the user that is logged in
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
