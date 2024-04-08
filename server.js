@@ -8,7 +8,7 @@ const session = require('express-session');
 //imports handelbars for creating views
 const exphbs = require('express-handlebars');
 //import controllers directory
-//const routes = require('./controllers');
+const routes = require('./controllers');
 //import helpers file from utils directory
 const helpers = require('./utils/helpers');
 //imoprt connection file from config folder
@@ -24,8 +24,29 @@ const PORT = process.env.PORT || 3001;
 //connects handlebars to helpers folder
 const hbs = exphbs.create({ helpers });
 
-// TO DO: configure and link session object with sequelize store
-// TO DO: add additional middleware for express-session and store as express.js middleware
+// Configure and link a session object with the sequelize store
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
+// Add express-session and store as Express.js middleware
+app.use(session(sess));
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(routes);
+
 //start the server listening:
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Server now listening'));

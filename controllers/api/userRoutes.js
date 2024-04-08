@@ -13,7 +13,7 @@ router.post('/login', async (req, res) => {
             return;
         }
 
-        //this verifys that the password that was entered matches the password that is stored in the database
+        //this verifies that the password that was entered matches the password that is stored in the database
         const validPassword = await userData.checkPassword(req.body.password);
 
         if (!validPassword) {
@@ -36,15 +36,16 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.post('/logout', (req, res) => {
-    if (req.session.logged_in) {
-        //this removes the session variables
-        req.session.destroy(() => {
-            res.status(204).end();
-        });
-    } else {
-        res.status(404).end();
-    }
-});
+//COMMENTED OUT FOR CLARITY UNTIL LOGOUT ROUTE IS MADE
+// router.post('/logout', (req, res) => {
+//     if (req.session.logged_in) {
+//         //this removes the session variables
+//         req.session.destroy(() => {
+//             res.status(204).end();
+//         });
+//     } else {
+//         res.status(404).end();
+//     }
+// });
 
 module.exports = router;
