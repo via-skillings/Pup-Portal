@@ -12,10 +12,13 @@ router.use((req, res, next) => {
 //need to make home page only accessible to authorized users, otherwise display login page
 router.get('/', (req, res) => {
     console.log("homepage hit")
-    res.render("homepage")
+    //renders homepage view, checks if user is authorized so that header layout can change links dynamically
+    //res.render accepts handlebars layout name and object as parameters
+    res.render("homepage", {logged_in: req.session.logged_in});
 });
+
 //this prevents someone who is not logged in from viewing the main page
-//THIS SECTION IS COMMENTED OUT FOR CLARITY UNTIL ROUTE IS BUILT
+//THIS SECTION IS COMMENTED OUT FOR CLARITY UNTIL ROUTE IS BUILT, NOT SURE WE NEED THIS
 // router.get('/', withAuth, async (req, res) => {
 //     try {
 //         const userData = await User.findAll({
@@ -45,4 +48,18 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+//homeroute endpoint for clicking on /newdog anchor on homepage
+//uses withAuth so only logged in users can add a new dog
+router.get('/newdog', withAuth, async (req, res) => {
+        try {
+            //renders newdog handlebars view
+            //passes session authentication object with info about login status
+            res.render('newdog', {logged_in: req.session.logged_in});
+            //catch error if not successful
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    });
+
+ //export the router module for user throughout the app   
 module.exports = router;
