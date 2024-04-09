@@ -49,20 +49,15 @@ We are not accepting contributers for this project at the moment.
 N/A
 
 ## Questions
-For any questions about this repository, feel free to contact any of us through the following links to GitHub or to our listed emails. Thank you!
+For any questions about this repository, feel free to contact any of us through the following links to GitHubs. Thank you!
 
 
 GitHub: [Cocho011](https://github.com/Cocho011)
-Email: carolinaochoa1287@gmail.com
 
 GitHub: [cassiesprague](https://github.com/cassiesprague)
-Email: cassie.sprague.18@gmail.com
 
 GitHub: [via-skillings](https://github.com/via-skillings)
-Email: viaskillings@gmail.com
 
 GitHub: [Sadiethongsavanh](https://github.com/Sadiethongsavanh)
-Email: Thongsavanhsadie@gmail.com
 
 GitHub: [victoria-cg](https://github.com/victoria-cg)
-Email: vgreenwood1@gmail.com

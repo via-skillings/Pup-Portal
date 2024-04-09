@@ -38,7 +38,7 @@ User.init(
         },
     },
     {
-        //TODO: Figure out what Hooks does
+        
         // Hooks hashes the password
         hooks: {
             beforeCreate: async (newUserData) => {
