@@ -1,25 +1,36 @@
+//import sequelize
 const sequelize = require('../config/connection');
-const { User, Project } = require('../models');
-
+//import user model for seeding database with that model
+const { User } = require('../models/user');
+//import JSON seed user data
 const userData = require('./userData.json');
-const projectData = require('./projectData.json');
-
-const seedDatabase = async () => {
+//import Dog model for seeding database with that model
+const { Dog } = require('../models/dog');
+//import JSON seed dog data
+const dogData = require('./dogData.json');
+//create async function to seed the user data into the database using sequelize and the User model
+const seedUser = async () => {
   await sequelize.sync({ force: true });
-
-  const users = await User.bulkCreate(userData, {
+//creates user instances based on User model an userData seeds
+  await User.bulkCreate(userData, {
     individualHooks: true,
     returning: true,
   });
 
-  for (const project of projectData) {
-    await Project.create({
-      ...project,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
-
   process.exit(0);
 };
+//calls seedUser function
+seedUser();
 
-seedDatabase();
+//creates async function to seed the dog data into the database
+const seedDog = async () => {
+    await sequelize.sync({ force: true });
+  //creates instances of Dog model with dogData seeds
+    await Dog.bulkCreate(dogData);
+  
+    process.exit(0);
+  };
+
+  //calls seedDog function
+  seedDog();
+

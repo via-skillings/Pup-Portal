@@ -50,7 +50,7 @@ Dog.init (
             type: DataTypes.STRING,
             allowNull: false,
         },
-        spayed: {
+        spayedOrNeutered: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -64,7 +64,7 @@ Dog.init (
         freezeTableName: true,
         underscored: true,
         modelName: 'Dog',
-        },
+        }
 );
 
-module.exports = Dog
+module.exports = Dog;

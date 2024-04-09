@@ -4,7 +4,6 @@
 // crate trained
 // potty trained
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 // create class to ref in line 12

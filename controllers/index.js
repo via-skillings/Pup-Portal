@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const userRoutes = require('./userRoutes');
-
+const homeRoutes = require('./homeRoutes');
 const apiRoutes = require('./api');
-const mainRoutes = require('./mainRoutes');
 
-router.use('/users', userRoutes);
-router.use('/', mainRoutes);
+//makes middleware for home routes and API routes
+router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 
 module.exports = router;
+
+//I moved the userRoutes controller into the api folder index.js because it doesn't belong in the main/home routes index, that debugged our controllers -VG
