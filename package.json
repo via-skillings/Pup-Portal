@@ -4,7 +4,7 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "postcss ./src/styles.css -o ./public/styles.css"
         "start": "node server.js",
         "devStart": "nodemon server.js",
         "seed": "node seeds/seed.js"
@@ -20,10 +20,14 @@
         "express-handlebars": "^5.2.0",
         "express-session": "^1.17.1",
         "mysql2": "^2.2.5",
+        "postcss-cli": "^11.0.0",
+        "postcss-import": "^16.1.0",
         "sequelize": "^6.3.5"
     },
     "devDependencies": {
-        "nodemon": "^3.1.0"
+        "autoprefixer": "^10.4.19",
+        "nodemon": "^3.1.0",
+        "postcss": "^8.4.38",
+        "tailwindcss": "^3.4.3"
     }
 }
-
