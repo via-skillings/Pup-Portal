@@ -1,6 +1,11 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+router.use((req, res, next) => {
+    console.log("===============================userRoutes HIT ==================================")
+    next()
+});
+
 //API route for login POST request
 router.post('/login', async (req, res) => {
     try {
