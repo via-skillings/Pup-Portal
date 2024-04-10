@@ -28,7 +28,16 @@ router.post("/newdog", withAuth, async(req,res) => {
         res.status(400).json(err); 
     }
 });
+//attempt to retrieve all dogs from database
+router.get('/', (req, res) => {
+    console.log("return all dogs",Dog)
+    try{
+        Dog.findAll().then(data=>res.status(200).json(data))
+    }catch (error) {
 
+        res.status(404).json({ message: error });
+    }
+});
 module.exports = router;
 
 //TO DO: GET Route for all dogs, with auth
