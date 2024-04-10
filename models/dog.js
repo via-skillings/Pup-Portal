@@ -50,7 +50,7 @@ Dog.init (
             type: DataTypes.STRING,
             allowNull: false,
         },
-        spayedOrNeutered: {
+        spayed: {
             type: DataTypes.STRING,
             allowNull: false,
         },
