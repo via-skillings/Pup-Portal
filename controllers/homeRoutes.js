@@ -48,18 +48,29 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+//test new dog route without auth: DELETE LATER
+router.get('/newdog', async (req, res) => {
+    try {
+        //renders newdog handlebars view
+        //passes session authentication object with info about login status
+        res.render('newdog');
+        //catch error if not successful
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 //homeroute endpoint for clicking on /newdog anchor on homepage
-//uses withAuth so only logged in users can add a new dog
-router.get('/newdog', withAuth, async (req, res) => {
-        try {
-            //renders newdog handlebars view
-            //passes session authentication object with info about login status
-            res.render('newdog', {logged_in: req.session.logged_in});
-            //catch error if not successful
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    });
+//uses withAuth so only logged in users can add a new dog: commented out for testing while logged out
+// router.get('/newdog', withAuth, async (req, res) => {
+//         try {
+//             //renders newdog handlebars view
+//             //passes session authentication object with info about login status
+//             res.render('newdog', {logged_in: req.session.logged_in});
+//             //catch error if not successful
+//         } catch (err) {
+//             res.status(500).json(err);
+//         }
+//     });
 
  //export the router module for user throughout the app   
 module.exports = router;
