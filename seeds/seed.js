@@ -1,11 +1,13 @@
 //import sequelize
 const sequelize = require('../config/connection');
 //import user model for seeding database with that model
-const { User } = require('../models/user');
+//removed /user from models import so class would render correctly
+const { User } = require('../models');
 //import JSON seed user data
 const userData = require('./userData.json');
 //import Dog model for seeding database with that model
-const { Dog } = require('../models/dog');
+//removed /dog from models import
+const { Dog } = require('../models');
 //import JSON seed dog data
 const dogData = require('./dogData.json');
 //create async function to seed the user data into the database using sequelize and the User model
