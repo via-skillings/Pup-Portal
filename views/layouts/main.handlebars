@@ -15,14 +15,14 @@
     <!--href connecting to homepage homeRoute, which will render homepage handlebars view -->
     <a href="/">Home Page</a>
     <!--if logged in render the logout button in the header, else render login button-->
-    <!--{{#if logged_in}}-->
-        <!--<button>Logout</button>
-        <script src="./js/logout.js"></script>-->
-      <!--{{else}}-->
+    {{#if logged_in}}
+        <button id="logout-button">Logout</button>
+        <script src="./js/logout.js"></script>
+      {{else}}
       <!--href connecting to login homeRoute, which will render login handlebars view -->
-      <a href="/logout">Logout</a>
+      <!--<a href="/logout">Logout</a>-->
         <a href="/login">Login</a> 
-      <!--{{/if}}-->
+      {{/if}}
   </header>
   <main>
     {{{ body }}}
