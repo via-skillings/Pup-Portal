@@ -73,5 +73,10 @@ router.get('/newdog', withAuth, async (req, res) => {
         }
     });
 
+    //post route to log out
+    router.post('/logout', function(req, res) {
+        req.session.destroy(() => {
+            res.status(204).end();});
+    })
  //export the router module for user throughout the app   
 module.exports = router;
