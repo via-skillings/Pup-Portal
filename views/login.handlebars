@@ -1,21 +1,24 @@
 <!--Handlebars template for login page-->
 <!--collect user inputs for email & password, and submit with login button-->
-<h2>Login</h2>
-<h3>Enter Your Login Information</h3>
+<div class="login-container">
+  <h2 class="mb-4">Please enter your login information below:</h2>
 
-<form class="form login-form">
-  <div class="form-group">
-    <label for="email-login">Email:</label>
-    <input class="form-input" type="text" id="email-login" />
-  </div>
-  <div class="form-group">
-    <label for="password-login">Password:</label>
-    <input class="form-input" type="password" id="password-login" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">Login</button>
-  </div>
-</form>
+  <form class="form login-form">
+    <div class="form-group mb-4">
+      <label for="email-login">Email:</label>
+      <input class="form-input" type="text" id="email-login" />
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="password-login">Password:</label>
+      <input class="form-input" type="password" id="password-login" />
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">Login</button>
+    </div>
+  </form>
+</div>
 
 <!--connect script to handle login with login.js file-->
 <script src="/js/login.js"></script>

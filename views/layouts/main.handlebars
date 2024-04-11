@@ -5,30 +5,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pup Portal</title>
-  <link rel="stylesheet" href="./css/style.css"/>
+  <!-- to include Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <h1>
-      Pup Portal
-    </h1>
-    <!--href connecting to homepage homeRoute, which will render homepage handlebars view -->
-    <a href="/">Home Page</a>
-    <!--if logged in render the logout button in the header, else render login button-->
-    {{#if logged_in}}
-        <button id="logout-button">Logout</button>
-        <script src="./js/logout.js"></script>
+
+<body class="bg-gray-100">
+  <header class="bg-blue-500 p-4 flex justify-between items-center">
+    <h1 class="text-white text-2xl font-bold">Pup Portal</h1>
+    <nav>
+      <!-- Home Page Link -->
+      <a href="/" class="text-white mr-4">Home Page</a>
+      <!-- Conditional Rendering based on 'logged_in' -->
+      {{#if logged_in}}
+      <button id="logout-button" class="text-white">Logout</button>
+      <script src="./js/logout.js"></script>
       {{else}}
-      <!--href connecting to login homeRoute, which will render login handlebars view -->
-      <!--<a href="/logout">Logout</a>-->
-        <a href="/login">Login</a> 
+      <a href="/login" class="bg-gray-300 text-white font-bold px-4 py-2 rounded border border-gray-400">Login</a>
       {{/if}}
+    </nav>
   </header>
-  <main>
+  {{!-- use handlebars for dynamic content --}}
+  <main class="container mx-auto mt-8 space-y-4">
+    
     {{{ body }}}
   </main>
-  <footer></footer>
-
-</body>
+{{!-- to include handlebars --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+</body> 
 
 </html>
