@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Dog} = require('../models');
 //withAuth allows us to only render certain pages to authorized users
 const withAuth = require('../utils/auth');
 
@@ -73,10 +73,30 @@ router.get('/newdog', withAuth, async (req, res) => {
         }
     });
 
+    //homeRoute endpoint to render get all dogs view
+    router.get('/viewalldogs', withAuth, async (req, res) => {
+        try {
+            //renders newdog handlebars view
+            //passes session authentication object with info about login status
+            const dogData = await Dog.findAll().catch((err) => { 
+                res.json(err);
+              });
+                const dogs = dogData.map((dog) => dog.get({ plain: true }));
+                res.render('viewalldogs', { dogs, logged_in: req.session.logged_in });
+
+            //catch error if not successful
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    });
+
     //post route to log out
     router.post('/logout', function(req, res) {
         req.session.destroy(() => {
             res.status(204).end();});
     })
+
+    
  //export the router module for user throughout the app   
 module.exports = router;
+

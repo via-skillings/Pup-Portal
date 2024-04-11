@@ -5,7 +5,16 @@
 
 <!--handlebars syntax version of a loop to get each dog as alias |dog|, and print all the properties for each dog-->
 <!--To Do: check if correct naming to retrieve the dog data properly-->
-{{#each dog as |Dog|}}
-<h2>{{Dog.name}}</h2>
-<!--add other properties here-->
+{{#each dogs as |Dog|}}
+    <h2>{{Dog.name}}</h2>
+    <p>Breed: {{Dog.breed}}</p>
+    <p>Age: {{Dog.age}}</p>
+    <p>Size: {{Dog.size}}</p>
+    <p>Weight: {{Dog.weight}}</p>
+    <p>Sex: {{Dog.sex}}</p>
+    <p>Vaccinated: {{Dog.vaccinated}}</p>
+    <p>Spayed/Neutered: {{Dog.spayed}}</p>
+    <p>Fee: {{Dog.fee}}</p>
+
+    <!-- Add any other properties you want to display -->
 {{/each}}
