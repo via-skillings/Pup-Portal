@@ -1,8 +1,40 @@
-<h2>Welcome to Pup Portal!</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-<p>Login and then click the links below to add a dog to the system or view the current dogs.</p>
-<!--href links to newdog home route-->
-<a href="/newdog">Add a Dog</a>
-<!--href links to viewalldogs home route-->
-<a href="/viewalldogs">View All Dogs</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pup Portal</title>
+  <!-- Include Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
 
+<body class="bg-gray-100 text-gray-700 min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-blue-500 text-white py-4 px-8 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Pup Portal</h1>
+    <nav>
+      <!-- If not logged in, render login button -->
+      <a href="/login" class="ml-4">Login</a>
+      <!-- If logged in, render logout button -->
+      <a href="/logout" class="ml-4">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="flex-1 container mx-auto py-8">
+    <h2 class="text-3xl font-bold mb-4 text-center">Welcome to Pup Portal!</h2>
+    <p class="text-lg mb-6 text-center">Login and then click the links below to add a dog to the system or view the current dogs.</p>
+  
+    <!-- Links to add a dog and view all dogs -->
+    <div class="grid grid-cols-1 gap-4 justify-items-center">
+      <a href="/newdog" class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-lg text-center font-semibold transition duration-300 ease-in-out">Add a Dog</a>
+      <a href="/viewalldogs" class="bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg text-center font-semibold transition duration-300 ease-in-out">View All Dogs</a>
+    </div>
+  </div>
+
+  <!-- Include Handlebars -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+</body>
+
+</html>
