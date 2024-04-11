@@ -39,6 +39,7 @@ router.get('/', (req, res) => {
 // });
 
 router.get('/login', (req, res) => {
+    console.log("login home route hit")
     //if user already logged in, redirect to home page at '/' homeRoute, otherwise respond with view of login page
     if (req.session.logged_in) {
         res.redirect('/');
@@ -48,8 +49,19 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-//homeroute endpoint for clicking on /newdog anchor on homepage
-//uses withAuth so only logged in users can add a new dog
+// //test new dog route without auth: DELETE LATER, CURRENTLY LEFT IN SO WE CAN TEST THE FORM AND ROUTE WITH LOGIN STILL BROKEN
+// router.get('/newdog', async (req, res) => {
+//     try {
+//         //renders newdog handlebars view
+        
+//         res.render('newdog');
+//         //catch error if not successful
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
+
+//homeroute endpoint for clicking on /newdog anchor on homepage uses withAuth so only logged in users can add a new dog:
 router.get('/newdog', withAuth, async (req, res) => {
         try {
             //renders newdog handlebars view
