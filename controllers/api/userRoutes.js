@@ -8,10 +8,11 @@ router.use((req, res, next) => {
 
 //API route for login POST request
 router.post('/login', async (req, res) => {
+    console.log('Req Body: ', req.body)
     try {
         //this finds the user who matches up with the email address
         const userData = await User.findOne({ where: { email: req.body.email } });
-
+        console.log("Üser Found: ", userData)
         if (!userData) {
             res
                 .status(400)
@@ -21,7 +22,8 @@ router.post('/login', async (req, res) => {
 
         //this verifies that the password that was entered matches the password that is stored in the database
         const validPassword = await userData.checkPassword(req.body.password);
-
+        console.log("Vaild: ", validPassword);
+        
         if (!validPassword) {
             res
                 .status(400)
@@ -38,6 +40,7 @@ router.post('/login', async (req, res) => {
         });
 
     } catch (err) {
+        console.log("error: ", err);
         res.status(400).json(err);
     }
 });

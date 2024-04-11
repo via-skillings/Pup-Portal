@@ -33,6 +33,9 @@ router.get('/', (req, res) => {
     console.log("return all dogs",Dog)
     try{
         Dog.findAll().then(data=>res.status(200).json(data))
+
+
+        res.render('viewalldogs')
     }catch (error) {
 
         res.status(404).json({ message: error });
