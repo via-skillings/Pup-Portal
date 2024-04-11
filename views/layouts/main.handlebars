@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pup Portal</title>
-  <!-- Include Tailwind CSS -->
+  <!-- to include Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
@@ -20,16 +20,17 @@
       <button id="logout-button" class="text-white">Logout</button>
       <script src="./js/logout.js"></script>
       {{else}}
-      <a href="/login" class="text-white">Login</a>
+      <a href="/login" class="bg-gray-300 text-white font-bold px-4 py-2 rounded border border-gray-400">Login</a>
       {{/if}}
     </nav>
   </header>
-  <main class="container mx-auto my-4">
+  {{!-- use handlebars for dynamic content --}}
+  <main class="container mx-auto mt-8 space-y-4">
     
     {{{ body }}}
   </main>
-  <footer class="bg-gray-200 text-center py-4"><
-    /footer>
+{{!-- to include handlebars --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 </body> 
 
 </html>
