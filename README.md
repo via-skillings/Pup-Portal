@@ -56,10 +56,12 @@ Torre Taylor (UT Bootcamp class instructor):
 -Assistance with debugging login routes
 -Assistance with debugging handlebars loop to render data from database
 -Assistance with debugging logout route and syntax for event listener JS file to connect logout route and logout button
+-Assistance with debugging const names for new dog form handler to match the database fields
 
 Walter Perry (class TA): assistance with understanding how to implement form handling JS file for dogRoutes
 -Assistance with debugging database seeds/SQL
 -Assistance with debugging routes for login
+
 
 
 ## License 
