@@ -6,23 +6,23 @@ const newDogFormHandler = async (event) => {
     event.preventDefault();
   
     // Get text values entered by user for new Dog instance from the form elements on the newdog handlebars view
-    const newName = document.querySelector('#new-name').value.trim();
-    const newAge = document.querySelector('#new-age').value.trim();
-    const newBreed = document.querySelector('#new-breed').value.trim();
-    const newSize = document.querySelector('#new-size').value.trim();
-    const newWeight = document.querySelector('#new-weight').value.trim();
-    const newSex = document.querySelector('#new-sex').value.trim();
-    const newVaccinated = document.querySelector('#new-vaccinated').value.trim();
-    const newSpayedNeutered = document.querySelector('#new-spayedneutered').value.trim();
-    const newFee = document.querySelector('#new-fee').value.trim();
+    const name = document.querySelector('#new-name').value.trim();
+    const age = document.querySelector('#new-age').value.trim();
+    const breed = document.querySelector('#new-breed').value.trim();
+    const size = document.querySelector('#new-size').value.trim();
+    const weight = document.querySelector('#new-weight').value.trim();
+    const sex = document.querySelector('#new-sex').value.trim();
+    const vaccinated = document.querySelector('#new-vaccinated').value.trim();
+    const spayed = document.querySelector('#new-spayedneutered').value.trim();
+    const fee = document.querySelector('#new-fee').value.trim();
 
   
     //checks if text values fron all form fields is received
-    if ( newName && newAge && newBreed && newSize && newWeight && newSex && newVaccinated && newSpayedNeutered && newFee) {
+    if ( name && age && breed && size && weight && sex && vaccinated && spayed && fee) {
       // Send the values from the form to the server
       const response = await fetch('/api/dogs/newdog', {
         method: 'POST',
-        body: JSON.stringify({newName, newAge, newBreed, newSize, newWeight, newSex, newVaccinated, newSpayedNeutered, newFee }),
+        body: JSON.stringify({name, age, breed, size, weight, sex, vaccinated, spayed, fee}),
         //tell the server that the body content is being sent as JSON
         headers: { 'Content-Type': 'application/json' },
       });
